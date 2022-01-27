@@ -5,11 +5,10 @@ unit module CustomImporting;
 sub find-item($arr, $exported-items, $our-items) {
     $arr.map(-> $a {
         my $tmp = $exported-items{$a};
-        if ($tmp.defined) {
-            $tmp;
-        } else {
+        if (not $tmp.defined) {
             $tmp = $our-items{$a};
         }
+        $tmp;
     });
 }
 
@@ -19,11 +18,8 @@ our sub from-import-rt(Str $mname, $f) is export {
 }
 
 our sub from-import(\mo, $f) is export {
-    my $our-items = mo::;
-    my \mo1 = $our-items{"EXPORT"};
-    my $tmp1 = mo1::;
-    my \mo2 = $tmp1{"ALL"};
-    my $exported-items = mo2::; # EVAL "mo::EXPORT::ALL::";
+    my $our-items = mo.WHO;
+    my $exported-items = mo.WHO{"EXPORT"}.WHO{"ALL"}.WHO; # EVAL "mo::EXPORT::ALL::";
     my @res = find-item(@$f, $exported-items, $our-items);
     return @res[0] if not $f ~~ Iterable;
     return @res;
