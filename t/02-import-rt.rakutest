@@ -1,0 +1,34 @@
+use Test;
+use CustomImporting;
+
+use lib './t';
+
+my &asdf = from-import-rt("testimporting", <&asdf1>);
+is asdf(), "our asdf1";
+
+my (&asdf1, &asdf2, &asdf3, &asdf4, &asdf5) = from-import-rt("testimporting", <&asdf1 &asdf2 &testimporting::asdf3 &testimporting::asdf4 &asdf5>);
+
+is &asdf1.package.^name, "testimporting";
+is &asdf2.package.^name, "testimporting";
+is &asdf3.package.^name, "testimporting";
+is &asdf4.package.^name, "testimporting";
+is &asdf5.package.^name, "testimporting";
+is asdf1(), "our asdf1";
+is asdf2(), "exported asdf2";
+is asdf3(), "our testimporting::asdf3";
+is asdf4(), "exported testimporting::asdf4";
+is asdf5(), "our exported asdf5";
+
+my ($class1, $class2, $class3, \class4, \class5) = from-import-rt("testimporting", <class1 class2 class3 class4 class5>);
+
+is $class1.new.gist, "testimporting::class1.new";
+is $class2.new.gist, "testimporting::testimporting::class2.new";
+is $class3.new.gist, "testimporting::class3.new";
+is class4.new.gist, "testimporting::testimporting::class4.new";
+is class5.new.gist, "testimporting::class5.new";
+
+my ($v1, $v2) = from-import-rt("testimporting", <$v1 $v2>);
+is $v1, 42;
+is $v2, 1024;
+
+done-testing;

@@ -1,0 +1,25 @@
+{
+  "auth": "zef:wukgdu",
+  "authors": [
+    ""
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "Selective importing in Raku",
+  "license": "Artistic-2.0",
+  "name": "CustomImporting",
+  "perl": "6.d",
+  "provides": {
+    "CustomImporting": "lib/CustomImporting.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "https://github.com/wukgdu/raku-CustomImporting",
+  "tags": [
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.1"
+}
