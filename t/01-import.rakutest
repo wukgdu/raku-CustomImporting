@@ -45,10 +45,6 @@ is $vb1.WHERE, testimporting::<$v1>.WHERE;
 my $resa = from-import(testimporting, <$v1 $v2>);
 my $va1 := $resa[0];
 my $va2 := $resa[1];
-# is ok, too:
-# my @resa := from-import(testimporting, <$v1 $v2>);
-# my $va1 := @resa[0];
-# my $va2 := @resa[1];
 is $va1.WHERE, testimporting::<$v1>.WHERE;
 is $va2.WHERE, testimporting::<$v2>.WHERE;
 $va1 = 43;
