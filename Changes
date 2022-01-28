@@ -2,6 +2,9 @@ Revision history for CustomImporting
 
 {{$NEXT}}
 
+0.0.3  2022-01-28T17:18:32+08:00
+    - Bind variables
+
 0.0.2  2022-01-27T22:53:06+08:00
     - Simplify
 
