@@ -1,6 +1,8 @@
 Revision history for CustomImporting
 
 {{$NEXT}}
+
+0.0.4  2022-02-02T00:16:15+08:00
     - Fix when imported items are Any
 
 0.0.3  2022-01-28T17:18:32+08:00
