@@ -1,6 +1,7 @@
 Revision history for CustomImporting
 
 {{$NEXT}}
+    - Fix when imported items are Any
 
 0.0.3  2022-01-28T17:18:32+08:00
     - Bind variables

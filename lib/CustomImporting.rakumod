@@ -4,9 +4,8 @@ unit module CustomImporting;
 
 sub find-item(@arr, $exported-items, $our-items) {
     @arr.map(-> $a {
-        my $tmp1 := $exported-items{$a};
-        if ($tmp1.defined) {
-            $tmp1;
+        if ($exported-items{$a}:exists) {
+            $exported-items{$a};
         } else {
             $our-items{$a};
         }
