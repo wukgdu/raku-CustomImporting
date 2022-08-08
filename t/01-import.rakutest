@@ -60,4 +60,7 @@ my $arr2 := from-import(testimporting, <$arr2>);
 $arr2.push(4);
 is $arr2, testimporting::<$arr2>;
 
+# my $none = from-import(testimporting, <$none1>);
+# dd $none;
+
 done-testing;
